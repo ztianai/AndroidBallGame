@@ -1,35 +1,5 @@
 # Motion Game
-Mobile devices such as phone and tablets include a number of sensors and interfaces (e.g., touch gestures, motion controls, etc.) that enable novel forms of user experiences. For this assignment, you will build an app that utilizes these capabilities in the form a mobile, motion-based graphical game.
-
-Note that the word "game" here may be a bit misleading&mdash;your app does **not** need to have specific "win" or "lose" conditions, keep track of points, or have an identifiable story. Rather, I'm using "game" to refer generically to [_play_](https://en.wikipedia.org/wiki/Man,_Play_and_Games)-enabling artifacts or structures: in order words, an app that provides a "non-serious" user experience. This can be a traditional game (with points and other trappings), but it can also be closer to interactive [generative art](https://en.wikipedia.org/wiki/Generative_art) or an abstract visualization&mdash;just so long as it utilizes motion and gestures to control a graphical display in a purposeful way.
-
-- For example, a "game" might be a [Metaball](https://en.wikipedia.org/wiki/Metaballs) visualization, in which the user can use touch gestures to create or split blobby objects, and tilt and shake the phone to move them around.
-
-- Other options might be an interactive painting app, a [boid](https://en.wikipedia.org/wiki/Boids) simulation, or some other kind of [abstract game](http://store.steampowered.com/tag/en/Abstract/). The [Demo Scene](https://en.wikipedia.org/wiki/Demoscene) is a good source of inspiration, as are HTML5 demos (like [these](http://hakim.se/experiments)).
-
-  - You can almost think of this as an "all-ages" game: why might enthrall a two-year-old?
-
-- It's also perfectly fine to make a more traditional game: motion-controlled [Snake](https://en.wikipedia.org/wiki/Snake_(video_game)) would be perfectly doable, as would a [Ball Maze](https://en.wikipedia.org/wiki/Ball-in-a-maze_puzzle) puzzle.
-
-You can create whatever kind of game/experience you wish, so long as it meets the basic requirements. This is a chance for you to be creative, to draw on your artistic side and integrate that with the more logical process of coding! 
-
-**The overall requirements for your experience are:**
-
-1. Your app draws and shows dynamic (i.e., animated) graphical output.
-
-2. Your app is controlled via **motion** (moving or shaking the device) AND **touch gestures**, not by a [WIMP](https://en.wikipedia.org/wiki/WIMP_(computing)) interface.
-
-    - The _motion_ in particular should be a primary interaction, not just an add on&mdash;think about what kind of experiences phone shaking supports!
-    
-    - These control interfaces should _supplement_ one another. It should be "shake phone to X and tap phone to Y" not "either shake OR tap phone to X".
-    
-    - You can use buttons, etc if you want extra menus/settings/etc, but there should be no buttons while "playing" the game.
-
-3. It plays sound along with drawing pictures.
-
-Since this assignment will require physical hardware to test and the best experiences come from collaboration, you can complete this assignment either individually or in a **pair** (not more than 2 people, even though you're starting into your projects). Note that if you work in a pair, we'll have slightly higher expectations for the "creativity" portion of the assignment; it should be more impressive because there are two of you!
-
-  - See the [YAMA assignment](https://github.com/info498b-s16/yama) for notes about working with a partner!
+This is a mini ball game. The goal is to get the blue ball to the finish line, while user has the opportunity to choose different diffculties by creating different number of obstacle balls.
 
 
 ### Objectives
@@ -49,20 +19,6 @@ The user stories for the Motion Game are a bit more vague, since the exact conte
 * As a player, I want the visual display to be accompanied by audio.
 * As a player, I want the displayed output to react to my touch gestures _and_ device motion.
 
-
-## Implementation Details
-This assignment is _much_ more open-ended than the previous ones, though I'll include some general guidance below.
-
-### Fork and Create
-As with all assignments, you should start by **forking** and **cloning** this repository. It includes any starter code plus the `SUBMISSION.md` file you will need to complete.
-
-You will need to create a new project through Android Studio. Make sure to name your project **motiongame**, so that the package is `edu.uw.uwnetid.motiongame` (even if you have a more specific app name; the package names help us with grading). _You will need to save the project inside your cloned repo!_ (i.e., in the top-level directory).
-
-For this assignment, you should once again target **API 15 (4.0.3 Ice Cream Sandwich)** as your minimum SDK. You can specify any target any SDK you want in the `build.gradle` file, though **21** or **23** are good options.
-
-Your application will probably just need a single _blank_ Activity (though you can include more or use multiple fragments if your game demands). In order to programmatically generate graphics, your Activity will probably want to include a [Custom View](http://developer.android.com/guide/topics/ui/custom-components.html). I have included a small sample `View` you can use as a starting point.
-
-After you've created the app, you should modify the application name to be something unique and exciting (not just "Motion Game") so that it looks good in the app drawer. You should also be sure and specify and create a launcher icon for your app. You could even use a screenshot of your app once you have it finished!
 
 ### Drawing Graphics
 Your game will need to include dynamically generated, animated graphical content&mdash;that is, you'll need to utilize an Android [Canvas](http://developer.android.com/guide/topics/graphics/2d-graphics.html) to draw the graphics that should be displayed. The [`Canvas`](http://developer.android.com/reference/android/graphics/Canvas.html) class provides methods to draw lines, shapes, and even pictures (`Bitmaps`). Be sure and check out the documentation for a list of methods you can use!
@@ -160,21 +116,4 @@ While the `MediaPlayer` works fine for basic audio, in order to be more responsi
 
 This should allow you to get basic sound effects. Note that the `SoundPool` _should_ be able to be used alongside the `MediaPlayer`, but this is less tested than it should be.
 
-
-
-## Submit Your Solution
-In order to submit your assignment, you will need to both `push` your completed program to your GitHub repository (the one in the cloud that you created by forking), and submit a link to your repository to [Canvas](https://canvas.uw.edu/) (so that we know where to find your work)!
-
-Before you submit your assignment, double-check the following:
-
-* Test that your app builds, installs, and works without errors. It should fulfill all the user stories. **Be particularly careful that your graphs work across devices with different screen resolutions!!**
-* Included a screenshot showing your game in action.
-* Fill out the `SUBMISSION.md`included in the assignment directory, answering the questions. Note that this is where you can put "instructions" for your game, though you are also welcome to create a "help" alert or introductory Activity/Fragment that gives the user an explanation.
-* Commit the final version of your work, and push your code to your GitHub repository.
-
-Submit a a link to your GitHub repository via [this canvas page](https://canvas.uw.edu/courses/1041406/assignments/3183579).
-
-The assignment is due on **Fri May 13 at 6:00 AM**. Note that this is 2 days later than normal, so you have extra time to make your game really slick!
-
-### Grading Rubric
-See the assignment page on Canvas for the grading rubric.
+Sounds are from http://soundbible.com/suggest.php?q=start&x=0&y=0
